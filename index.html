@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenerfassung</title>
+  <style>
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input[type="text"], input[type="email"], input[type="date"], input[type="tel"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="datenForm">
+    <label for="vorname">Vorname:</label>
+    <input type="text" id="vorname" name="vorname" required>
+
+    <label for="nachname">Nachname:</label>
+    <input type="text" id="nachname" name="nachname" required>
+
+    <label for="geburtsdatum">Geburtsdatum:</label>
+    <input type="date" id="geburtsdatum" name="geburtsdatum" required>
+
+    <label for="geburtsort">Geburtsort:</label>
+    <input type="text" id="geburtsort" name="geburtsort" required>
+
+    <label for="strasse">Strasse:</label>
+    <input type="text" id="strasse" name="strasse" required>
+
+    <label for="hausnummer">Hausnummer:</label>
+    <input type="text" id="hausnummer" name="hausnummer" required>
+
+    <label for="plz">PLZ:</label>
+    <input type="text" id="plz" name="plz" required>
+
+    <label for="ort">Ort:</label>
+    <input type="text" id="ort" name="ort" required>
+
+    <label for="schulung">Art der Schulung:</label>
+    <select id="schulung" name="schulung" required>
+      <option value="option1">Schulung 1</option>
+      <option value="option2">Schulung 2</option>
+      <option value="option3">Schulung 3</option>
+    </select>
+
+    <label for="telefon">Telefonnummer:</label>
+    <input type="tel" id="telefon" name="telefon" required>
+
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>
+      <input type="checkbox" id="datenschutz" name="datenschutz" required>
+      Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.
+    </label>
+
+    <input type="submit" value="Daten absenden">
+  </form>
+
+  <script>
+    // JavaScript für die Validierung und Datenübertragung
+    document.getElementById("datenForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Verhindert das Standardverhalten des Formulars
+
+      // Daten sammeln
+      const formData = new FormData(this);
+
+      // Hier können Sie die Daten an Ihren Server senden oder anderweitig verarbeiten
+      // Beispiel: fetch('URL_ZUM_SERVER', { method: 'POST', body: formData })
+      // Dann können Sie die Antwort des Servers verarbeiten oder eine Bestätigungsnachricht anzeigen
+
+      // Für dieses Beispiel zeigen wir einfach die gesammelten Daten in der Konsole an
+      for (let [key, value] of formData.entries()) {
+        console.log(key + ': ' + value);
+      }
+
+      // Optional: Formular zurücksetzen
+      // this.reset();
+    });
+  </script>
+</body>
+</html>
